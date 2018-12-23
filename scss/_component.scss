@@ -209,7 +209,7 @@
 
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--color-grey-light-2);
+    border-bottom: var(--line);
 
     &__heading{
         font-size: 2.25rem;
@@ -312,5 +312,81 @@
     100%{
         transform: scale(1);
         box-shadow: none;  
+    }
+}
+
+//PARAGRAPH
+.paragraph:not(:last-of-type){ // last paragraph should not have margin-bottom
+    margin-bottom: 2rem;
+
+}
+
+// LIST
+.list{
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex;
+    flex-wrap: wrap; //so the item will go to the next line if there's no space
+
+    &__item{
+        flex:0 0 50%; //each list item has a fixed width
+        margin-bottom: 0.7rem;
+    }
+
+    //using svg image in CSS
+
+    &__item::before{
+       content: " ";
+       display: inline-block;
+       height: 1rem;
+       width: 1rem;
+       margin-right: 0.7rem;
+
+       //older-browser
+       //background-image: url(../img/chevron-thin-right.svg);
+       //background-size: cover;
+
+       //For newer browser
+       
+        background-color: var(--color-primary);
+       -webkit-mask-image: url(../img/chevron-thin-right.svg); //similar like clip-path
+       -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg); //similar like clip-path
+        mask-size: cover;
+
+
+    }
+
+}
+
+//RECOMMEND
+
+.recommend{
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+    display: flex;
+    align-items: center;
+    
+
+    &__count{
+       margin-right: auto;
+    }
+
+    &__photo{
+       height: 4rem;
+       width: 4rem;
+       border-radius: 50%;
+       border: 3px solid #fff;
+
+       box-sizing: content-box; //so that the border to be added on the top with the original image's height and width 
+                                //and not to decrease the image size
+
+       &:not(:last-child){
+           margin-right: -1.5rem;
+       }
     }
 }
