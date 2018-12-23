@@ -41,6 +41,7 @@
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
   padding: 4.5rem;
+  font-size: 1.4rem; //so both its child will be affected
 
 
 }
@@ -49,12 +50,16 @@
   margin-right: 4.5rem;
   padding: 3rem;
   box-shadow: var(--shadow-light);
-  font-size: 1.4rem;
   flex: 0 0 60%;
 
 }
 .user-reviews{
-  background-color: yellowgreen;
+  
   flex: 1; //take rest of the available space
+
+  //for centering the button
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
